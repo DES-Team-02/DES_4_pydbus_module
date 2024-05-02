@@ -1,0 +1,16 @@
+<node>
+    <interface name="com.team2.VehicleControl">
+        <method name="SetSteering">
+            <arg type="i" name="value" direction="in"/>
+        </method>
+        <method name="SetSpeed">
+            <arg type="i" name="value" direction="in"/>
+        </method>
+        <signal name="SteeringChanged">
+            <arg type="i" name="newSteering"/>
+        </signal>
+        <signal name="SpeedChanged">
+            <arg type="i" name="newSpeed"/>
+        </signal>
+    </interface>
+</node>
