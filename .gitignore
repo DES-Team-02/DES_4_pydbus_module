@@ -3,3 +3,4 @@ myenv/
 .exe
 vehicle_control
 .vscode/
+build/
