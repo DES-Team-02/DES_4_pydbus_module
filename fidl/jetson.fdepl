@@ -1,0 +1,27 @@
+import "platform:/plugin/org.genivi.commonapi.someip/deployment/CommonAPI-4-SOMEIP_deployment_spec.fdepl"
+import "jetson.fidl"
+
+define org.genivi.commonapi.someip.deployment for interface commonapi.Jetson {
+    SomeIpServiceID = 2000
+
+    attribute steering {
+        SomeIpNotifierEventGroups = { 2100 }
+        SomeIpNotifierID = 21000
+        SomeIpGetterID = 2101
+        SomeIpAttributeReliable = true
+    }
+
+    attribute throttle {
+        SomeIpNotifierEventGroups = { 2200 }
+        SomeIpNotifierID = 22000
+        SomeIpGetterID = 2201
+        SomeIpAttributeReliable = true
+    }
+}
+
+define org.genivi.commonapi.someip.deployment for provider as Service {
+    instance commonapi.Jetson {
+        InstanceId = "commonapi.Jeston"
+        SomeIpInstanceID = 2001
+    }
+}
