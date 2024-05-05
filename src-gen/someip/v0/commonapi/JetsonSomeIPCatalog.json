@@ -1,8 +1,8 @@
 {
     "commonapi.Jetson" : {
-        "service_id": 2000,
+        "service_id": 4661,
         "instances" : {
-            "commonapi.Jeston": 2001
+            "commonapi.Jetson": 1234
         }
     }
 }

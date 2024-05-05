@@ -32,8 +32,8 @@ std::shared_ptr<CommonAPI::SomeIP::Proxy> createJetsonSomeIPProxy(
 
 void initializeJetsonSomeIPProxy() {
     CommonAPI::SomeIP::AddressTranslator::get()->insert(
-        "local:commonapi.Jetson:v0_1:commonapi.Jeston",
-        0x7d0, 0x7d1, 0, 1);
+        "local:commonapi.Jetson:v0_1:commonapi.Jetson",
+        0x1235, 0x4d2, 0, 1);
     CommonAPI::SomeIP::Factory::get()->registerProxyCreateMethod(
         "commonapi.Jetson:v0_1",
         &createJetsonSomeIPProxy);
@@ -47,8 +47,8 @@ JetsonSomeIPProxy::JetsonSomeIPProxy(
     const CommonAPI::SomeIP::Address &_address,
     const std::shared_ptr<CommonAPI::SomeIP::ProxyConnection> &_connection)
         : CommonAPI::SomeIP::Proxy(_address, _connection),
-          steering_(*this, CommonAPI::SomeIP::eventgroup_id_t(0x834), CommonAPI::SomeIP::event_id_t(0x5208), CommonAPI::SomeIP::method_id_t(0x835), true, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE, false, static_cast< CommonAPI::EmptyDeployment* >(nullptr)),
-          throttle_(*this, CommonAPI::SomeIP::eventgroup_id_t(0x898), CommonAPI::SomeIP::event_id_t(0x55f0), CommonAPI::SomeIP::method_id_t(0x899), true, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE, false, static_cast< CommonAPI::EmptyDeployment* >(nullptr))
+          steering_(*this, CommonAPI::SomeIP::eventgroup_id_t(0x8110), CommonAPI::SomeIP::event_id_t(0x8110), CommonAPI::SomeIP::method_id_t(0xfa0), true, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE, false, static_cast< CommonAPI::EmptyDeployment* >(nullptr)),
+          throttle_(*this, CommonAPI::SomeIP::eventgroup_id_t(0x8111), CommonAPI::SomeIP::event_id_t(0x8111), CommonAPI::SomeIP::method_id_t(0x1005), true, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE, false, static_cast< CommonAPI::EmptyDeployment* >(nullptr))
 {
 }
 

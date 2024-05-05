@@ -89,22 +89,22 @@ public:
             false,
             _stub->hasElement(1))
     {
-        JetsonSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x835) }, &getSteeringAttributeStubDispatcher );
-        JetsonSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x899) }, &getThrottleAttributeStubDispatcher );
+        JetsonSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0xfa0) }, &getSteeringAttributeStubDispatcher );
+        JetsonSomeIPStubAdapterHelper::addStubDispatcher( { CommonAPI::SomeIP::method_id_t(0x1005) }, &getThrottleAttributeStubDispatcher );
         std::shared_ptr<CommonAPI::SomeIP::ClientId> itsClient = std::make_shared<CommonAPI::SomeIP::ClientId>();
 
         // Provided events/fields
         if (_stub->hasElement(0)) {
             std::set<CommonAPI::SomeIP::eventgroup_id_t> itsEventGroups;
-            itsEventGroups.insert(CommonAPI::SomeIP::eventgroup_id_t(CommonAPI::SomeIP::eventgroup_id_t(0x834)));
-            CommonAPI::SomeIP::StubAdapter::registerEvent(CommonAPI::SomeIP::event_id_t(0x5208), itsEventGroups, CommonAPI::SomeIP::event_type_e::ET_FIELD, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE);
+            itsEventGroups.insert(CommonAPI::SomeIP::eventgroup_id_t(CommonAPI::SomeIP::eventgroup_id_t(0x8110)));
+            CommonAPI::SomeIP::StubAdapter::registerEvent(CommonAPI::SomeIP::event_id_t(0x8110), itsEventGroups, CommonAPI::SomeIP::event_type_e::ET_FIELD, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE);
             fireSteeringAttributeChanged(std::dynamic_pointer_cast< ::v0::commonapi::JetsonStub>(_stub)->getSteeringAttribute(itsClient));
         }
 
         if (_stub->hasElement(1)) {
             std::set<CommonAPI::SomeIP::eventgroup_id_t> itsEventGroups;
-            itsEventGroups.insert(CommonAPI::SomeIP::eventgroup_id_t(CommonAPI::SomeIP::eventgroup_id_t(0x898)));
-            CommonAPI::SomeIP::StubAdapter::registerEvent(CommonAPI::SomeIP::event_id_t(0x55f0), itsEventGroups, CommonAPI::SomeIP::event_type_e::ET_FIELD, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE);
+            itsEventGroups.insert(CommonAPI::SomeIP::eventgroup_id_t(CommonAPI::SomeIP::eventgroup_id_t(0x8111)));
+            CommonAPI::SomeIP::StubAdapter::registerEvent(CommonAPI::SomeIP::event_id_t(0x8111), itsEventGroups, CommonAPI::SomeIP::event_type_e::ET_FIELD, CommonAPI::SomeIP::reliability_type_e::RT_RELIABLE);
             fireThrottleAttributeChanged(std::dynamic_pointer_cast< ::v0::commonapi::JetsonStub>(_stub)->getThrottleAttribute(itsClient));
         }
 
@@ -124,7 +124,7 @@ void JetsonSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireSteeringAttributeCha
             >
     >::sendEvent(
         *this,
-        CommonAPI::SomeIP::event_id_t(0x5208),
+        CommonAPI::SomeIP::event_id_t(0x8110),
         false,
         _value
     );
@@ -138,7 +138,7 @@ void JetsonSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireThrottleAttributeCha
             >
     >::sendEvent(
         *this,
-        CommonAPI::SomeIP::event_id_t(0x55f0),
+        CommonAPI::SomeIP::event_id_t(0x8111),
         false,
         _value
     );

@@ -19,4 +19,20 @@ int main()
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	};
 	std::cout << "Successfully Registered Jetson Service" << std::endl;
+
+	float steering = 0;
+	float throttle = 0;
+	while (true)
+	{
+		std::cout << steering << ", " << throttle << std::endl;
+		myService->setSteeringAttribute(steering);
+		steering += 0.1;
+		myService->setThrottleAttribute(throttle);
+		throttle += 0.1;
+		if (steering > 1)
+			steering = 0;
+		if (throttle > 1)
+			throttle = 0;
+		std::this_thread::sleep_for(std::chrono::milliseconds(500));
+	}
 }

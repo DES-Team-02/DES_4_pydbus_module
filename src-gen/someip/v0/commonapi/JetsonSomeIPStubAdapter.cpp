@@ -34,8 +34,8 @@ std::shared_ptr<CommonAPI::SomeIP::StubAdapter> createJetsonSomeIPStubAdapter(
 
 void initializeJetsonSomeIPStubAdapter() {
     CommonAPI::SomeIP::AddressTranslator::get()->insert(
-        "local:commonapi.Jetson:v0_1:commonapi.Jeston",
-         0x7d0, 0x7d1, 0, 1);
+        "local:commonapi.Jetson:v0_1:commonapi.Jetson",
+         0x1235, 0x4d2, 0, 1);
     CommonAPI::SomeIP::Factory::get()->registerStubAdapterCreateMethod(
         "commonapi.Jetson:v0_1",
         &createJetsonSomeIPStubAdapter);
