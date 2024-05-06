@@ -9,7 +9,7 @@ from threading import Thread
 def update_values(service):
     for value in range(1, 101):
         service.SetSteering(value)
-        service.SetSpeed(value)
+        service.SetThrottle(value)
         time.sleep(1)
 
 if __name__ == "__main__":

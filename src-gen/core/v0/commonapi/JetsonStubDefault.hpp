@@ -60,27 +60,27 @@ public:
         return &remoteEventHandler_;
     }
 
-    COMMONAPI_EXPORT virtual const float &getSteeringAttribute() {
+    COMMONAPI_EXPORT virtual const double &getSteeringAttribute() {
         return steeringAttributeValue_;
     }
-    COMMONAPI_EXPORT virtual const float &getSteeringAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) {
+    COMMONAPI_EXPORT virtual const double &getSteeringAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) {
         (void)_client;
         return getSteeringAttribute();
     }
-    COMMONAPI_EXPORT virtual void setSteeringAttribute(float _value) {
+    COMMONAPI_EXPORT virtual void setSteeringAttribute(double _value) {
         const bool valueChanged = trySetSteeringAttribute(std::move(_value));
         if (valueChanged) {
             fireSteeringAttributeChanged(steeringAttributeValue_);
         }
     }
-    COMMONAPI_EXPORT virtual const float &getThrottleAttribute() {
+    COMMONAPI_EXPORT virtual const double &getThrottleAttribute() {
         return throttleAttributeValue_;
     }
-    COMMONAPI_EXPORT virtual const float &getThrottleAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) {
+    COMMONAPI_EXPORT virtual const double &getThrottleAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) {
         (void)_client;
         return getThrottleAttribute();
     }
-    COMMONAPI_EXPORT virtual void setThrottleAttribute(float _value) {
+    COMMONAPI_EXPORT virtual void setThrottleAttribute(double _value) {
         const bool valueChanged = trySetThrottleAttribute(std::move(_value));
         if (valueChanged) {
             fireThrottleAttributeChanged(throttleAttributeValue_);
@@ -89,7 +89,7 @@ public:
 
 
 protected:
-    COMMONAPI_EXPORT virtual bool trySetSteeringAttribute(float _value) {
+    COMMONAPI_EXPORT virtual bool trySetSteeringAttribute(double _value) {
         if (!validateSteeringAttributeRequestedValue(_value))
             return false;
 
@@ -107,11 +107,11 @@ protected:
 
        return valueChanged;
     }
-    COMMONAPI_EXPORT virtual bool validateSteeringAttributeRequestedValue(const float &_value) {
+    COMMONAPI_EXPORT virtual bool validateSteeringAttributeRequestedValue(const double &_value) {
         (void)_value;
         return true;
     }
-    COMMONAPI_EXPORT virtual bool trySetThrottleAttribute(float _value) {
+    COMMONAPI_EXPORT virtual bool trySetThrottleAttribute(double _value) {
         if (!validateThrottleAttributeRequestedValue(_value))
             return false;
 
@@ -129,7 +129,7 @@ protected:
 
        return valueChanged;
     }
-    COMMONAPI_EXPORT virtual bool validateThrottleAttributeRequestedValue(const float &_value) {
+    COMMONAPI_EXPORT virtual bool validateThrottleAttributeRequestedValue(const double &_value) {
         (void)_value;
         return true;
     }
@@ -149,8 +149,8 @@ protected:
 
 private:
 
-    float steeringAttributeValue_ {};
-    float throttleAttributeValue_ {};
+    double steeringAttributeValue_ {};
+    double throttleAttributeValue_ {};
 
     CommonAPI::Version interfaceVersion_;
 };

@@ -1,7 +1,7 @@
 class VehicleControl:
     def __init__(self):
-        self._steering = 0
-        self._speed = 0
+        self._steering = 0.0
+        self._throttle = 0.0
     
     @property
     def steering(self):
@@ -14,12 +14,12 @@ class VehicleControl:
         print(f"Steering set to {self._steering}")
         
     @property
-    def speed(self):
-        return self._speed
+    def throttle(self):
+        return self._throttle
     
-    @speed.setter
-    def speed(self, value):
-        self._speed = value
+    @throttle.setter
+    def throttle(self, value):
+        self._throttle = value
         #For debugging
-        print(f"Speed set to {self._speed}")    
+        print(f"Speed set to {self._throttle}")    
     

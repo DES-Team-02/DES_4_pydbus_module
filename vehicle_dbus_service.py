@@ -11,18 +11,18 @@ class VehicleControlDBusService:
     <node>
         <interface name='com.team2.VehicleControl'>
             <method name='SetSteering'>
-                <arg type='i' name='value' direction='in'/>
+                <arg type='d' name='value' direction='in'/>
             </method>
-            <method name='SetSpeed'>
-                <arg type='i' name='value' direction='in'/>
+            <method name='SetThrottle'>
+                <arg type='d' name='value' direction='in'/>
             </method>
             <property name='Steering' type='i' access='read'/>
-            <property name='Speed' type='i' access='read'/>
+            <property name='Throttle' type='i' access='read'/>
             <signal name='SteeringChanged'>
-                <arg type='i' name='newSteering'/>
+                <arg type='d' name='newSteering'/>
             </signal>
-            <signal name='SpeedChanged'>
-                <arg type='i' name='newSpeed'/>
+            <signal name='ThrottleChanged'>
+                <arg type='d' name='newThrottle'/>
             </signal>
         </interface>
     </node>
@@ -36,21 +36,21 @@ class VehicleControlDBusService:
         self.SteeringChanged(value)
         return f"Steering set to {value}"
 
-    def SetSpeed(self, value):
-        self.vehicle.speed = value
-        self.SpeedChanged(value)
-        return f"Speed set to {value}"
+    def SetThrottle(self, value):
+        self.vehicle.throttle = value
+        self.ThrottleChanged(value)
+        return f"Throttle set to {value}"
     
     SteeringChanged = signal()
-    SpeedChanged = signal()
+    ThrottleChanged = signal()
 
     @property
     def Steering(self):
         return self.vehicle.steering
 
     @property
-    def Speed(self):
-        return self.vehicle.speed
+    def Throttle(self):
+        return self.vehicle.throttle
     
 # if __name__ == "__main__":
 #     bus = SessionBus()

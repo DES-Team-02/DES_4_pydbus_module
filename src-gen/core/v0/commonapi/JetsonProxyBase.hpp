@@ -34,8 +34,8 @@ namespace commonapi {
 class JetsonProxyBase
     : virtual public CommonAPI::Proxy {
 public:
-    typedef CommonAPI::ObservableReadonlyAttribute<float> SteeringAttribute;
-    typedef CommonAPI::ObservableReadonlyAttribute<float> ThrottleAttribute;
+    typedef CommonAPI::ObservableReadonlyAttribute<double> SteeringAttribute;
+    typedef CommonAPI::ObservableReadonlyAttribute<double> ThrottleAttribute;
 
 
     virtual SteeringAttribute& getSteeringAttribute() = 0;

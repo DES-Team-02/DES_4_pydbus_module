@@ -46,9 +46,9 @@ public:
         JetsonSomeIPStubAdapterHelper::deinit();
     }
 
-    void fireSteeringAttributeChanged(const float &_value);
+    void fireSteeringAttributeChanged(const double &_value);
     
-    void fireThrottleAttributeChanged(const float &_value);
+    void fireThrottleAttributeChanged(const double &_value);
     
     void deactivateManagedInstances() {}
     
@@ -59,12 +59,12 @@ public:
 
     CommonAPI::SomeIP::GetAttributeStubDispatcher<
         ::v0::commonapi::JetsonStub,
-        float
+        double
     > getSteeringAttributeStubDispatcher;
     
     CommonAPI::SomeIP::GetAttributeStubDispatcher<
         ::v0::commonapi::JetsonStub,
-        float
+        double
     > getThrottleAttributeStubDispatcher;
     
     JetsonSomeIPStubAdapterInternal(
@@ -117,10 +117,10 @@ public:
 };
 
 template <typename _Stub, typename... _Stubs>
-void JetsonSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireSteeringAttributeChanged(const float &_value) {
+void JetsonSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireSteeringAttributeChanged(const double &_value) {
     CommonAPI::SomeIP::StubEventHelper<
         CommonAPI::SomeIP::SerializableArguments<
-            float
+            double
             >
     >::sendEvent(
         *this,
@@ -131,10 +131,10 @@ void JetsonSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireSteeringAttributeCha
 }
 
 template <typename _Stub, typename... _Stubs>
-void JetsonSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireThrottleAttributeChanged(const float &_value) {
+void JetsonSomeIPStubAdapterInternal<_Stub, _Stubs...>::fireThrottleAttributeChanged(const double &_value) {
     CommonAPI::SomeIP::StubEventHelper<
         CommonAPI::SomeIP::SerializableArguments<
-            float
+            double
             >
     >::sendEvent(
         *this,

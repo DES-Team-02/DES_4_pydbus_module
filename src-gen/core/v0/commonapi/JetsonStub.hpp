@@ -47,9 +47,9 @@ class JetsonStubAdapter
       public virtual Jetson {
  public:
     ///Notifies all remote listeners about a change of value of the attribute steering.
-    virtual void fireSteeringAttributeChanged(const float &steering) = 0;
+    virtual void fireSteeringAttributeChanged(const double &steering) = 0;
     ///Notifies all remote listeners about a change of value of the attribute throttle.
-    virtual void fireThrottleAttributeChanged(const float &throttle) = 0;
+    virtual void fireThrottleAttributeChanged(const double &throttle) = 0;
 
 
     virtual void deactivateManagedInstances() = 0;
@@ -117,9 +117,9 @@ public:
     virtual const CommonAPI::Version& getInterfaceVersion(std::shared_ptr<CommonAPI::ClientId> _client) = 0;
 
     /// Provides getter access to the attribute steering
-    virtual const float &getSteeringAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) = 0;
+    virtual const double &getSteeringAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) = 0;
     /// sets attribute with the given value and propagates it to the adapter
-    virtual void fireSteeringAttributeChanged(float _value) {
+    virtual void fireSteeringAttributeChanged(double _value) {
     auto stubAdapter = CommonAPI::Stub<JetsonStubAdapter, JetsonStubRemoteEvent>::stubAdapter_.lock();
     if (stubAdapter)
         stubAdapter->fireSteeringAttributeChanged(_value);
@@ -130,9 +130,9 @@ public:
             stubAdapter->lockSteeringAttribute(_lockAccess);
     }
     /// Provides getter access to the attribute throttle
-    virtual const float &getThrottleAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) = 0;
+    virtual const double &getThrottleAttribute(const std::shared_ptr<CommonAPI::ClientId> _client) = 0;
     /// sets attribute with the given value and propagates it to the adapter
-    virtual void fireThrottleAttributeChanged(float _value) {
+    virtual void fireThrottleAttributeChanged(double _value) {
     auto stubAdapter = CommonAPI::Stub<JetsonStubAdapter, JetsonStubRemoteEvent>::stubAdapter_.lock();
     if (stubAdapter)
         stubAdapter->fireThrottleAttributeChanged(_value);
