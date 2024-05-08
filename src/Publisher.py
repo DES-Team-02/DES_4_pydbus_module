@@ -1,6 +1,6 @@
 # main_publish.py
 
-from vehicle_dbus_service import VehicleControlDBusService
+from VehicleDbusService import VehicleControlDBusService
 from pydbus import SessionBus
 from gi.repository import GLib
 import time

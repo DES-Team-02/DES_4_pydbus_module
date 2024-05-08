@@ -1,7 +1,7 @@
 from pydbus import SessionBus
 from gi.repository import GLib
 from pydbus.generic import signal
-from vehicle_control import VehicleControl
+from VehicleControlClass import VehicleControl
 
 class VehicleControlDBusService:
     """
@@ -16,8 +16,8 @@ class VehicleControlDBusService:
             <method name='SetThrottle'>
                 <arg type='d' name='value' direction='in'/>
             </method>
-            <property name='Steering' type='i' access='read'/>
-            <property name='Throttle' type='i' access='read'/>
+            <property name='Steering' type='d' access='read'/>
+            <property name='Throttle' type='d' access='read'/>
             <signal name='SteeringChanged'>
                 <arg type='d' name='newSteering'/>
             </signal>
