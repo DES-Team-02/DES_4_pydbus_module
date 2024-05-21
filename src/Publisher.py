@@ -7,10 +7,14 @@ import time
 from threading import Thread
 
 def update_values(service):
-    for value in range(1, 101):
+    value = -1
+    offset = 0.1
+    while True:
+        value += offset
         service.SetSteering(value)
-        service.SetThrottle(value)
         time.sleep(1)
+        if value == 1:
+            offset = -offset
 
 if __name__ == "__main__":
     bus = SessionBus()
