@@ -42,3 +42,10 @@ add_library(JetsonProxy SHARED
   src-gen/${INTERFACE}/JetsonSomeIPProxy.cpp
 )
 target_link_libraries(JetsonProxy CommonAPI-SomeIP)
+
+# Add Raspberry Pi executable
+add_executable(raspberry_control
+  rasptest/main.cpp
+  rasptest/JetsonProxyImpl.cpp
+)
+target_link_libraries(raspberry_control CommonAPI-SomeIP)

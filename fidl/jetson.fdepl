@@ -6,6 +6,7 @@ define org.genivi.commonapi.someip.deployment for interface commonapi.Jetson {
 
     attribute steering {
         SomeIpGetterID = 4000
+        SomeIpSetterID = 4001
         SomeIpNotifierID = 33040
         SomeIpNotifierEventGroups = { 33040 }
 
@@ -14,6 +15,7 @@ define org.genivi.commonapi.someip.deployment for interface commonapi.Jetson {
 
     attribute throttle {
         SomeIpGetterID = 4101
+        SomeIPSetterID = 4102
         SomeIpNotifierID = 33041
         SomeIpNotifierEventGroups = { 33041 }
 
@@ -27,8 +29,6 @@ define org.genivi.commonapi.someip.deployment for provider as Service {
 
         SomeIpInstanceID = 1234
 
-        SomeIpUnicastAddress = "192.168.0.2"
-        SomeIpReliableUnicastPort = 30499
-        SomeIpUnreliableUnicastPort = 30499
+    
     }
 }
